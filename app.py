@@ -19,8 +19,8 @@ def home():
 @app.route("/divide/<int:a>/<int:b>")
 def divide(a, b):
     REQUEST_COUNT.inc()
-    # if b == 0:
-    #     return jsonify({"error": "Division by zero is not allowed"}), 400
+    if b == 0:
+        return jsonify({"error": "Division by zero is not allowed"}), 400
     return jsonify({"result": a / b})
 
 
